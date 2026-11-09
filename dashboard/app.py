@@ -43,11 +43,16 @@ selected_page = render_navigation(PAGE_NAMES)
 try:
     active_filters = render_global_filters(selected_page)
 except FileNotFoundError as error:
-    st.error(f"{error}\n\nRun the existing pipeline first to create `database/ecommerce.db`.")
+    st.error(
+        f"{error}\n\nRun the existing pipeline first to create `database/ecommerce.db`."
+    )
     st.stop()
+    raise SystemExit(0)
+
 except sqlite3.DatabaseError as error:
     st.error(f"Could not read the Olist database: {error}")
     st.stop()
+    raise SystemExit(0)
 
 pages = {
     "Executive Overview": overview.render,
