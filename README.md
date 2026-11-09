@@ -1,104 +1,199 @@
-# Brazilian E-Commerce Data Pipeline
+# Olist Commerce Intelligence
 
-A Python data engineering and analytics project for the Brazilian E-Commerce Public Dataset by Olist. The pipeline ingests nine CSV files, profiles and cleans records, validates data quality, builds an order-item analytical table, stores outputs in SQLite, executes SQL analyses, and generates an Excel workbook.
+An end-to-end e-commerce analytics platform built using Python, Pandas, SQL, SQLite, Streamlit and Excel. The project processes the Brazilian E-Commerce Public Dataset by Olist and turns raw marketplace data into validated analytical datasets, business reports and an interactive dashboard.
 
-The project is intended for educational and portfolio demonstration. Raw dataset files are local inputs and are not committed.
+## Project overview
 
-## Objectives
+- Processes 9 source CSV datasets.
+- Covers approximately 99K orders and 112K order-item records.
+- Implements data profiling, cleaning, validation and analytical transformations.
+- Stores processed data in SQLite.
+- Generates an automated Excel report with 11 worksheets.
+- Includes a six-page interactive Streamlit dashboard.
+- Provides order-level exploration and CSV export.
 
-- Load and profile all nine source datasets reproducibly.
-- Apply explicit type, missing-value, duplicate, and validation rules without arbitrary imputation.
-- Preserve the original raw CSV inputs.
-- Create an order-item analytical table with validated many-to-one joins.
-- Store cleaned source tables and analytical data in SQLite.
-- Report delivered sales separately from all-status item value, and provide payment reconciliation context.
-- Automate quality and business reporting in Excel.
+## Technology stack
+
+Python · Pandas · SQL · SQLite · Streamlit · Plotly · OpenPyXL · Pytest · GitHub Actions
 
 ## Architecture
 
 ```mermaid
-flowchart LR
-    CSV["9 Olist CSV files<br/>data/raw/"] --> Load["Ingestion and schema checks"]
-    Load --> Types["Type conversion"]
-    Types --> Missing["Blank normalization<br/>and missing-value report"]
-    Missing --> Profile["Data quality profile"]
-    Profile --> Duplicates["Duplicate handling"]
-    Duplicates --> Validate["Key, relationship,<br/>and business validation"]
-    Validate --> Transform["Order-item analytical joins"]
-    Validate --> SQLite["Clean source tables"]
-    Transform --> SQLite
-    SQLite --> SQL["SQL business analyses"]
-    SQL --> Excel["Excel workbook<br/>11 worksheets"]
-    SQLite --> Dashboard["Streamlit dashboard<br/>read-only analytics"]
-    Load -. "logging" .-> Logs["logs/"]
-    Validate -. "findings" .-> Logs
+flowchart TD
+    A["9 Raw Olist CSV datasets"] --> B["Python data pipeline"]
+    B --> C["Profiling, cleaning and validation"]
+    C --> D["SQLite analytical database"]
+    D --> E["SQL business analysis"]
+    E --> F["Excel report"]
+    D --> G["Six-page Streamlit dashboard"]
+    B --> H["Pipeline logs"]
 ```
 
-## Pipeline workflow
+## Dashboard
 
-Running `python main.py` performs these steps in order:
+The Streamlit application contains six analytical sections:
 
-1. Checks for and loads all nine expected CSV files from `data/raw/`.
-2. Converts known date, nullable integer, and ZIP-prefix columns; invalid non-empty dates and non-integer values raise errors.
-3. Normalizes blank text fields to missing values, preserves missing records, and records missing-value counts and policies.
-4. Profiles the normalized datasets. The `Data Quality` and `Missing Values` worksheets describe the same reporting stage: after type conversion and blank-string normalization, before duplicate handling.
-5. Removes exact duplicate geolocation rows from the processed copy only. Other rows and repeated business identifiers are retained and reported.
-6. Validates required columns, keys, selected foreign-key relationships, allowed order statuses, monetary values, review scores, product dimensions, and selected timestamp ordering rules. Validation errors stop output generation; warnings are retained in the report.
-7. Builds an item-grain analytical table by joining order items to orders, products, category translations, sellers, and customers. Joins are validated as many-to-one and the row count is checked against the order-items input.
-8. Replaces SQLite source/analytical tables with the current run's data and executes the business-analysis SQL.
-9. Writes the Excel workbook and pipeline log.
+| Page | Features |
+|---|---|
+| Executive Overview | Marketplace KPIs, delivered sales, order trends and status distribution |
+| Sales Analytics | Monthly and yearly trends, regional demand and sales comparisons |
+| Product Intelligence | Category performance, product rankings and category drill-down |
+| Customer Intelligence | Customer distribution, order frequency and review patterns |
+| Payments & Operations | Payment methods, installments, payment reconciliation and delivery metrics |
+| Order Explorer | Individual order lookup, order details and CSV export |
 
-The pipeline reads raw CSVs and does not write to them. Validation is not a substitute for business review: warning findings do not block the run.
+The dashboard uses read-only SQLite access and parameterized SQL queries. Shared filters allow users to explore the data across dashboard pages.
+
+## Data pipeline
+
+Run `python main.py` from the repository root to execute the batch pipeline.
+
+The pipeline:
+
+1. Loads and profiles the nine expected CSV datasets.
+2. Converts supported data types and normalizes blank values.
+3. Reports missing values and duplicate records.
+4. Validates selected keys, relationships, business rules and timestamps.
+5. Builds an order-item analytical dataset using validated joins.
+6. Stores processed source tables and analytical data in SQLite.
+7. Executes SQL business analyses.
+8. Generates an Excel workbook and pipeline logs.
+
+Raw CSV files are read as inputs and are not modified by the pipeline.
+
+## Installation
+
+Python 3.11 or newer is recommended.
+
+```bash
+git clone https://github.com/Tuberamesh/ecommerce-automation-system.git
+cd ecommerce-automation-system
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+python -m pip install -r requirements.txt
+```
+
+On Windows PowerShell, activate the environment with:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+## Dataset setup
+
+Download the Brazilian E-Commerce Public Dataset by Olist from Kaggle:
+
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+Place the nine CSV files in:
+
+```text
+data/raw/
+```
+
+The raw dataset and generated database files are excluded from Git. Review the dataset's license and attribution requirements before redistributing the dataset or derived data.
+
+## Run the pipeline
+
+```bash
+python main.py
+```
+
+## Run tests
+
+```bash
+python -m pytest -q
+```
+
+## Run the dashboard locally
+
+The dashboard reads an existing SQLite database. Run the pipeline first if the full local database has not been generated.
+
+```bash
+streamlit run dashboard/app.py
+```
+
+Open the local URL displayed by Streamlit, usually:
+
+```text
+http://localhost:8501
+```
+
+### Database selection
+
+The application supports two database configurations:
+
+- `database/ecommerce.db`: full local development database.
+- `database/deployment_ecommerce.db`: reduced deployment-oriented database with pseudonymized identifiers.
+
+By default, the application uses the full local database when it exists. Otherwise, it falls back to the deployment database.
+
+To explicitly select a database, set `OLIST_DATABASE_PATH`:
+
+```bash
+OLIST_DATABASE_PATH=database/deployment_ecommerce.db streamlit run dashboard/app.py
+```
+
+The deployment database is generated separately by:
+
+```bash
+python scripts/create_deployment_db.py
+```
+
+It is intended to reduce the fields and direct identifiers included in a deployment copy. Pseudonymization does not guarantee anonymity.
+
+## Generated outputs
+
+| Output | Description |
+|---|---|
+| `database/ecommerce.db` | Full processed SQLite database |
+| `database/deployment_ecommerce.db` | Reduced deployment-oriented database |
+| `reports/ecommerce_report.xlsx` | Automated Excel report with 11 worksheets |
+| `logs/` | Pipeline execution logs |
+
+Database files, raw data, processed data and logs are generated locally and are not included in the repository.
+
+## Analytical definitions and limitations
+
+- Delivered item revenue is calculated from item prices for orders with status `delivered`; freight is reported separately.
+- All-status item value includes item price and freight across order statuses. It is not the same as delivered revenue.
+- Average order value uses delivered item revenue divided by qualifying delivered orders.
+- Customer counts use distinct customer identifiers.
+- Payment totals and item/freight totals are separate measures and are not assumed to reconcile.
+- The source dataset does not provide product costs or profit margins. Profit, margin and customer lifetime value are therefore not calculated.
+- Monetary amounts remain in the source currency, Brazilian real (BRL).
+- Timestamp anomalies and other validation findings are reported rather than silently corrected.
+
+## Observed data-quality findings
+
+The current dataset run identified:
+
+- 261,831 exact duplicate geolocation rows removed from the processed copy.
+- 814 repeated review IDs, retained for investigation rather than automatically treated as duplicate reviews.
+- 4 products with zero recorded weight.
+- 166 carrier timestamps earlier than purchase timestamps.
+- 23 customer-delivery timestamps earlier than carrier handoff timestamps.
+- A difference of R$165,318.88 between all-status payment totals and item price plus freight totals.
+
+These are observations from the current dataset version, not guarantees for other versions.
+
+## Dataset attribution and licensing
+
+**Dataset:** Brazilian E-Commerce Public Dataset by Olist
+**Source:** https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+**Dataset license:** CC BY-NC-SA 4.0
+
+The dataset is licensed separately from the original code in this repository. Review the license terms and attribution requirements before redistributing the dataset, derived databases or other dataset-based materials.
+
+The original project code does not currently declare a separate open-source license.
 
 ## Repository structure
 
 ```text
 .
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── .gitignore
-├── README.md
-├── data/
-│   ├── processed/
-│   │   └── .gitkeep
-│   └── raw/                    # Nine local CSVs are ignored by Git
-│       └── .gitkeep
-├── database/
-│   └── .gitkeep
-├── logs/
-│   └── .gitkeep
-├── reports/
-│   └── .gitkeep
-├── src/
-│   ├── analysis/
-│   │   ├── __init__.py
-│   │   └── business_queries.py
-│   ├── cleaning/
-│   │   ├── __init__.py
-│   │   ├── clean_data_types.py
-│   │   ├── handle_duplicates.py
-│   │   └── handle_missing_values.py
-│   ├── database/
-│   │   ├── __init__.py
-│   │   └── storage.py
-│   ├── ingestion/
-│   │   ├── __init__.py
-│   │   ├── inspect_data.py
-│   │   ├── loader.py
-│   │   └── profile_data.py
-│   ├── reporting/
-│   │   ├── __init__.py
-│   │   └── excel_report.py
-│   ├── transformation/
-│   │   ├── __init__.py
-│   │   └── build_analytical_data.py
-│   ├── validation/
-│   │   ├── __init__.py
-│   │   └── validate_data.py
-│   └── logging_config.py
-├── tests/
-│   └── test_pipeline.py
+├── .github/workflows/
 ├── dashboard/
 │   ├── app.py
 │   ├── config.py
@@ -107,158 +202,28 @@ The pipeline reads raw CSVs and does not write to them. Validation is not a subs
 │   ├── components.py
 │   ├── charts.py
 │   └── pages/
-│       ├── overview.py
-│       ├── sales.py
-│       ├── products.py
-│       ├── customers.py
-│       ├── payments_operations.py
-│       └── order_explorer.py
+├── data/
+│   ├── raw/
+│   └── processed/
+├── database/
+├── logs/
+├── reports/
+├── scripts/
+│   └── create_deployment_db.py
+├── src/
+│   ├── analysis/
+│   ├── cleaning/
+│   ├── database/
+│   ├── ingestion/
+│   ├── reporting/
+│   ├── transformation/
+│   └── validation/
+├── tests/
 ├── main.py
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
-## Requirements and installation
+## Continuous integration
 
-Python 3.11 or newer is required. SQLite and Python logging use the standard library.
-
-```bash
-git clone <your-repository-url>
-cd ecommerce-automation-system
-python3 -m venv .venv
-```
-
-Activate the environment:
-
-```bash
-# macOS/Linux
-source .venv/bin/activate
-
-# Windows PowerShell
-.venv\Scripts\Activate.ps1
-```
-
-Install dependencies:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-Download the nine CSV files from the attributed dataset and place them in `data/raw/`. These files are intentionally excluded from Git. The loader fails with an explicit list if any required file is missing.
-
-## Run and test
-
-From the repository root with the virtual environment active:
-
-```bash
-python main.py
-```
-
-The automated tests use in-memory/sample fixtures and temporary output files; they do not require the Olist CSV files:
-
-```bash
-python -m pytest -q
-```
-
-## Interactive business intelligence dashboard
-
-The separate Streamlit dashboard reads the existing SQLite database in read-only mode. It does not reload raw CSVs, write to the database, or replace the batch pipeline or Excel report.
-
-Install the project's dependencies in the active virtual environment:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-Run the existing pipeline first if `database/ecommerce.db` has not been generated, then launch from the project root:
-
-```bash
-streamlit run dashboard/app.py
-```
-
-### Dashboard features and architecture
-
-- **Executive Overview:** delivered item revenue and orders, unique customers, average order value, monthly value trend, order statuses, revenue versus freight, and leading customer states.
-- **Sales Analytics:** monthly, quarterly, and yearly comparisons; delivered revenue versus all-status item value; customer-state revenue and order trends.
-- **Product Intelligence:** category revenue and contribution rankings, meaningful bottom categories, and product-ID performance with interactive category drill-down.
-- **Customer Intelligence:** state distribution, order frequency, filtered repeat-order counts, and review score distribution.
-- **Payments & Operations:** payment type and installment distributions, payment reconciliation, freight, delivery duration, and delays against estimates.
-- **Order Explorer:** order-ID search, globally filtered order details, associated payment/review/delivery context, and CSV export (up to 500 rows per search).
-
-`dashboard/app.py` provides navigation and the shared filter controls. `dashboard/queries.py` contains parameterized SQL aggregations, `dashboard/database.py` owns read-only cached access, and `dashboard/components.py` / `dashboard/charts.py` provide the shared interface. Page-specific rendering lives in `dashboard/pages/`. Global purchase-date, customer-state, product-category, and order-status filters apply across views. Refresh clears the query cache; it does not run or modify the pipeline.
-
-### Metric definitions and limitations
-
-- **Delivered item revenue** is `SUM(order_items.price)` for orders whose status is exactly `delivered`; it excludes freight. **Delivered item price + freight** is shown separately where relevant.
-- **All-status item value** is item price plus freight for items regardless of order status; it is never labelled as delivered revenue.
-- **Average order value** is delivered item revenue divided by delivered orders with qualifying item rows. Orders with multiple items count once in the denominator.
-- **Unique customers** uses distinct `customer_unique_id` values among filtered orders. The filtered repeat-order view counts customers with at least two distinct orders within the active selection; it is not lifetime retention.
-- Payment totals are summed from payment records and item/freight totals from order-item records. These measures are not presumed to reconcile. Category-filtered reconciliation includes all item lines and payment records for qualifying orders because payments are not allocated to product categories.
-- Review distributions count available review rows; repeated review IDs are retained by the existing pipeline. Customer-level sentiment attribution is not inferred.
-- The source supplies product IDs, not product names. Category translations may be missing; those products are grouped by their raw category name or `Unknown`.
-- Monetary values remain in the dataset's source currency (displayed as R$); no currency conversion is performed. Product margin, cost, profit, customer lifetime value, and cohort retention are not available from these tables.
-- Delivery metrics require non-null purchase, delivered, and estimated timestamps as appropriate. Negative or anomalous durations are retained rather than silently corrected. Review averages and payment values are record-level observations, not deduplicated.
-- Product and order detail tables are capped (50 top products and 500 orders per search). Apply filters to explore other records. The geolocation table is not loaded by the dashboard.
-
-### Screenshots
-
-_Screenshot placeholder: add dashboard captures here._
-
-GitHub Actions runs the same test suite on Python 3.12. It does not download the dataset or access secrets.
-
-## Generated outputs
-
-Successful pipeline runs create:
-
-- `database/ecommerce.db` — nine cleaned source tables and `order_item_sales`.
-- `reports/ecommerce_report.xlsx` — the 11 worksheets listed below.
-- `logs/ecommerce_pipeline.log` — execution details, warnings, and errors.
-
-The database, workbook, logs, raw/processed data, Python caches, and virtual environments are excluded from Git. Outputs are regenerated by running the pipeline; they are not included in this repository.
-
-### Excel worksheets
-
-| Worksheet | Contents |
-|---|---|
-| `Data Quality` | Per-column types, row/column counts, missing counts/percentages, and exact duplicate counts at the normalized profiling stage. |
-| `Missing Values` | Nonzero missing counts, dataset-specific preservation policy, and the reporting-stage label. |
-| `Duplicates` | Exact and configured business-key duplicate counts, any removed rows, and handling applied. |
-| `Validation` | Validation rule status, number of findings, and sample identifiers/values. |
-| `Monthly Sales (Delivered+All)` | Delivered-only order/item counts, item revenue, freight and total value, alongside separately labelled all-status item value and counts. |
-| `Sales by State (Delivered+All)` | Order counts and item price/freight/value totals by customer state, with delivered-only measures alongside all-status measures. |
-| `Top Categories (Delivered+All)` | Top 20 categories ranked by delivered total value, with delivered-only and all-status counts and amounts. |
-| `Payment Reconciliation` | All-status payment value, item-price total, freight total, their sum, the difference, and a note that the measures require investigation rather than implying an error. |
-| `Payment Types` | Payment-record counts, distinct order counts, and payment values by payment type. |
-| `Review Scores` | Review counts by score. |
-| `Order Status` | Order counts by status. |
-
-`Delivered` means `order_status = 'delivered'`. All-status item value means item price plus freight for items in any order status; it is **not** completed revenue. Payment values and item-price/freight totals are different financial measures and are not guaranteed to reconcile.
-
-## Technologies
-
-- Python 3.11+
-- Pandas for CSV handling, data profiling, and transformations
-- SQLite and SQL for persistence and analysis
-- OpenPyXL for Excel workbook generation
-- Python `logging` for run diagnostics
-- pytest for automated tests
-- GitHub Actions for continuous integration
-
-## Observed dataset findings and limitations
-
-The latest generated report/database showed:
-
-- 261,831 exact duplicate geolocation rows removed from the processed copy; raw geolocation CSV is unchanged.
-- 814 repeated review-ID rows reported; review records are retained and the IDs are not treated as proof of duplicate reviews.
-- 4 product rows with zero weight, 166 carrier timestamps before purchase, and 23 customer-delivery timestamps before carrier handoff; these are warnings, not repaired values.
-- All-status payments totaled 16,008,872.12, while item price plus freight totaled 15,843,553.24, a difference of 165,318.88. These are different measures and the difference is not inherently an error.
-
-These are observations from the current local dataset run, not guarantees for other dataset versions. Sales calculations use source currency with no currency conversion. The analytical fact is item-grain, not payment-grain. Geolocation rows are profiled and stored, but not joined into the order-item fact. The project is a local batch pipeline: it does not include cloud orchestration, a dashboard, deployment, or production alerting. Validation only implements the rules listed in the code and does not certify the source as error-free.
-
-## Dataset attribution and licensing
-
-- **Dataset:** Brazilian E-Commerce Public Dataset by Olist
-- **Source:** [Kaggle dataset page](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-- **Dataset license:** CC BY-NC-SA 4.0
-- **Purpose:** Educational and portfolio demonstration
-
-The dataset license applies to the dataset and its licensed contents. It does not automatically apply to original code in this repository. No license for the original project code has been selected or declared here; that decision remains with the project owner. Review the dataset license and attribution requirements before redistributing dataset contents or derivatives.
+GitHub Actions runs the automated test suite using Python 3.12. The workflow does not download the Olist dataset or require database files.

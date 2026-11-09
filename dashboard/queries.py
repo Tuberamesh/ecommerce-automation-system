@@ -634,7 +634,7 @@ def search_orders(
                   GROUP BY r.order_id
               )
               SELECT so.order_id, so.order_purchase_timestamp, so.order_status,
-                     c.customer_unique_id, c.customer_city, c.customer_state,
+                     c.customer_unique_id, c.customer_state,
                      item_summary.item_count, item_summary.categories,
                      item_summary.product_ids, item_summary.item_price,
                      item_summary.freight,

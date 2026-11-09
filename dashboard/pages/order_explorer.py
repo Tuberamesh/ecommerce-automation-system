@@ -62,7 +62,6 @@ def render(filters: DashboardFilters) -> None:
                     "order_purchase_timestamp": "Purchase date",
                     "order_status": "Status",
                     "customer_unique_id": "Customer ID",
-                    "customer_city": "Customer city",
                     "customer_state": "State",
                     "item_count": "Items",
                     "categories": "Categories",

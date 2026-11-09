@@ -41,3 +41,10 @@ data/processed/*
 !data/processed/.gitkeep
 !logs/.gitkeep
 !database/.gitkeep
+
+# Local editor and AI-agent configuration
+.agents/
+.claude/
+
+# Local backup files
+*.bak

@@ -1,7 +1,23 @@
+import os
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DATABASE_PATH = PROJECT_ROOT / "database" / "ecommerce.db"
+LOCAL_DATABASE_PATH = PROJECT_ROOT / "database" / "ecommerce.db"
+DEPLOYMENT_DATABASE_PATH = PROJECT_ROOT / "database" / "deployment_ecommerce.db"
+
+DEFAULT_DATABASE_PATH = (
+    LOCAL_DATABASE_PATH
+    if LOCAL_DATABASE_PATH.is_file()
+    else DEPLOYMENT_DATABASE_PATH
+)
+
+DATABASE_PATH = Path(
+    os.environ.get("OLIST_DATABASE_PATH", str(DEFAULT_DATABASE_PATH))
+).expanduser()
+
+if not DATABASE_PATH.is_absolute():
+    DATABASE_PATH = (PROJECT_ROOT / DATABASE_PATH).resolve()
+
 PRODUCT_NAME = "Olist Commerce Intelligence"
 PRODUCT_SUBTITLE = "Brazilian Marketplace Performance & Operations Analytics"
 CURRENCY_CONTEXT = "Brazilian real (BRL; symbol R$)"
