@@ -5,11 +5,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 LOCAL_DATABASE_PATH = PROJECT_ROOT / "database" / "ecommerce.db"
 DEPLOYMENT_DATABASE_PATH = PROJECT_ROOT / "database" / "deployment_ecommerce.db"
 
-DEFAULT_DATABASE_PATH = (
-    LOCAL_DATABASE_PATH
-    if LOCAL_DATABASE_PATH.is_file()
-    else DEPLOYMENT_DATABASE_PATH
-)
+from dashboard.cloud_database import ensure_database
+
+DEFAULT_DATABASE_PATH = ensure_database()
 
 DATABASE_PATH = Path(
     os.environ.get("OLIST_DATABASE_PATH", str(DEFAULT_DATABASE_PATH))
