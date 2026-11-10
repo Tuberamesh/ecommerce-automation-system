@@ -1,73 +1,74 @@
-# 🛒 Olist Commerce Intelligence
+<div align="center">
 
-::: {align="center"}
-`<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e3a8a,100:2563eb&height=220&section=header&text=OLIST%20COMMERCE%20INTELLIGENCE&fontSize=35&fontColor=ffffff&fontAlignY=38&desc=End-to-End%20E-Commerce%20Analytics%20Platform&descAlignY=60&descSize=16&descColor=dbeafe" width="100%"/>`{=html}
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e3a8a,100:2563eb&height=220&section=header&text=OLIST%20COMMERCE%20INTELLIGENCE&fontSize=36&fontColor=ffffff&fontAlignY=38&desc=End-to-End%20E-Commerce%20Analytics%20Platform&descAlignY=60&descSize=16&descColor=dbeafe" width="100%" alt="Olist Commerce Intelligence banner"/>
 
 ### From Raw Marketplace Data to Business Intelligence
 
-**An end-to-end data pipeline, analytical database, automated reporting
-system, and interactive business intelligence dashboard.**
+**An end-to-end data pipeline, analytical database, automated reporting system,<br/>and interactive business intelligence dashboard.**
 
-[![Live
-Dashboard](https://img.shields.io/badge/🚀_LIVE_DASHBOARD-Open%20Dashboard-2563eb?style=for-the-badge)](https://olist-commerce-intelligence.streamlit.app)
-[![GitHub](https://img.shields.io/badge/GITHUB-View%20Repository-111827?style=for-the-badge&logo=github)](https://github.com/Tuberamesh/ecommerce-automation-system)
+<br/>
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
-![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white)
-![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
-:::
+<a href="https://olist-commerce-intelligence.streamlit.app"><img src="https://img.shields.io/badge/🚀_LIVE_DASHBOARD-Open_Now-2563eb?style=for-the-badge" alt="Live Dashboard"/></a>
+<a href="https://github.com/Tuberamesh/ecommerce-automation-system"><img src="https://img.shields.io/badge/GITHUB-View_Repository-111827?style=for-the-badge&logo=github" alt="GitHub Repository"/></a>
 
-------------------------------------------------------------------------
+<br/>
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+<img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" alt="Pandas"/>
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite"/>
+<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit"/>
+<img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" alt="Plotly"/>
+<img src="https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white" alt="Pytest"/>
+<img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+
+</div>
+
+---
 
 ## 📌 Project at a Glance
 
-Olist Commerce Intelligence transforms raw Brazilian e-commerce
-marketplace data into structured, validated, and interactive business
-intelligence.
+Olist Commerce Intelligence turns raw Brazilian e-commerce marketplace data into structured, validated, and interactive business intelligence.
 
-The platform combines data engineering, analytics, SQL querying,
-automated Excel reporting, and dashboard development in one end-to-end
-workflow.
+It combines **data engineering, SQL analytics, automated Excel reporting, and dashboard development** in one end-to-end workflow.
 
-::: {align="center"}
-   📦 Source Datasets   🛍️ Orders    📋 Order Items   🏷️ Products
-  -------------------- ------------ ---------------- -------------
-    **9 CSV files**     **99,441**    **112,650**     **32,951**
+<div align="center">
 
-   📊 Dashboard Pages   📑 Excel Worksheets   🗄️ Database
-  -------------------- --------------------- -------------
-         **6**                **11**          **SQLite**
-:::
+<table>
+  <tr>
+    <td align="center"><h3>9</h3><sub>Source CSV Files</sub></td>
+    <td align="center"><h3>99,441</h3><sub>Orders</sub></td>
+    <td align="center"><h3>112,650</h3><sub>Order Items</sub></td>
+    <td align="center"><h3>32,951</h3><sub>Products</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><h3>6</h3><sub>Dashboard Pages</sub></td>
+    <td align="center"><h3>11</h3><sub>Excel Worksheets</sub></td>
+    <td align="center"><h3>SQLite</h3><sub>Analytical Database</sub></td>
+    <td align="center"><h3>Pytest</h3><sub>Automated Tests</sub></td>
+  </tr>
+</table>
+
+</div>
+
+---
 
 ## ✨ What This Project Does
 
--   **Data Engineering:** Processes nine raw CSV datasets through a
-    structured pipeline.
--   **Data Quality:** Profiles, cleans, validates, and transforms
-    marketplace data.
--   **Database Management:** Stores processed datasets in a relational
-    SQLite database.
--   **Business Analytics:** Uses SQL to analyze sales, customers,
-    products, payments, and operations.
--   **Automated Reporting:** Generates an Excel workbook containing 11
-    analytical worksheets.
--   **Business Intelligence:** Provides a six-page interactive Streamlit
-    dashboard.
--   **Cloud Deployment:** Deploys a public dashboard with a separately
-    managed, reduced deployment database.
+| | Capability | Description |
+|---|---|---|
+| 🔧 | **Data Engineering** | Processes nine raw CSV datasets through a structured pipeline |
+| 🧹 | **Data Quality** | Profiles, cleans, validates, and transforms marketplace data |
+| 🗄️ | **Database Management** | Stores processed datasets in a relational SQLite database |
+| 📊 | **Business Analytics** | Uses SQL to analyze sales, customers, products, payments, and operations |
+| 📑 | **Automated Reporting** | Generates an Excel workbook with 11 analytical worksheets |
+| 🌐 | **Business Intelligence** | Provides a six-page interactive Streamlit dashboard |
+| ☁️ | **Cloud Deployment** | Public dashboard backed by a separate, reduced deployment database |
 
-------------------------------------------------------------------------
+---
 
 ## 🏗️ System Architecture
 
-::: {align="center"}
-### The complete data workflow
-:::
-
-``` mermaid
+```mermaid
 flowchart TD
     A["📥 9 Raw Olist CSV Datasets"] --> B["🐍 Python Data Pipeline"]
     B --> C["🔍 Profiling, Cleaning & Validation"]
@@ -87,161 +88,211 @@ flowchart TD
     style H fill:#334155,color:#fff,stroke:#94a3b8
 ```
 
-### Pipeline Execution
+### Pipeline Stages
 
-  -----------------------------------------------------------------------
-  Stage                               Implementation
-  ----------------------------------- -----------------------------------
-  01 · Ingestion                      Loads nine source CSV datasets
-                                      using Pandas
+| Stage | Step | Implementation |
+|:---:|---|---|
+| **01** | Ingestion | Loads nine source CSV datasets using Pandas |
+| **02** | Profiling | Examines data types, missing values, and duplicates |
+| **03** | Cleaning | Normalizes supported data types and blank values |
+| **04** | Validation | Checks keys, relationships, timestamps, and business rules |
+| **05** | Transformation | Builds an order-item analytical dataset using validated joins |
+| **06** | Storage | Saves processed datasets in SQLite |
+| **07** | Analysis | Executes SQL-based business analysis |
+| **08** | Reporting | Generates Excel reports and pipeline logs |
 
-  02 · Profiling                      Examines data types, missing
-                                      values, and duplicates
-
-  03 · Cleaning                       Normalizes supported data types and
-                                      blank values
-
-  04 · Validation                     Checks keys, relationships,
-                                      timestamps, and business rules
-
-  05 · Transformation                 Builds an order-item analytical
-                                      dataset using validated joins
-
-  06 · Storage                        Saves processed datasets in SQLite
-
-  07 · Analysis                       Executes SQL-based business
-                                      analysis
-
-  08 · Reporting                      Generates Excel reports and
-                                      pipeline logs
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
+---
 
 ## 📊 Interactive Dashboard
 
-::: {align="center"}
-### Explore the marketplace from six analytical perspectives
+<div align="center">
 
-[![Open Live
-Dashboard](https://img.shields.io/badge/OPEN%20LIVE%20DASHBOARD-2563eb?style=for-the-badge&logo=streamlit&logoColor=white)](https://olist-commerce-intelligence.streamlit.app)
-:::
+<a href="https://olist-commerce-intelligence.streamlit.app"><img src="https://img.shields.io/badge/OPEN_LIVE_DASHBOARD-2563eb?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open Live Dashboard"/></a>
 
-  -----------------------------------------------------------------------
-  Dashboard Page                      What You Can Explore
-  ----------------------------------- -----------------------------------
-  🏠 Executive Overview               Marketplace KPIs, delivered sales,
-                                      order trends, and order status
+*Explore the marketplace from six analytical perspectives*
 
-  💰 Sales Analytics                  Monthly and yearly trends, regional
-                                      demand, and sales comparisons
+</div>
 
-  📦 Product Intelligence             Category performance, product
-                                      rankings, and category drill-down
+| Page | What You Can Explore |
+|---|---|
+| 🏠 **Executive Overview** | Marketplace KPIs, delivered sales, order trends, and order status |
+| 💰 **Sales Analytics** | Monthly and yearly trends, regional demand, and sales comparisons |
+| 📦 **Product Intelligence** | Category performance, product rankings, and category drill-down |
+| 👥 **Customer Intelligence** | Customer distribution, order frequency, and review patterns |
+| 💳 **Payments & Operations** | Payment methods, installments, reconciliation, and delivery metrics |
+| 🔎 **Order Explorer** | Individual order lookup, order details, and CSV export |
 
-  👥 Customer Intelligence            Customer distribution, order
-                                      frequency, and review patterns
+**Dashboard capabilities:** interactive filters and visual exploration · SQL-powered data retrieval · order-level investigation · CSV export for selected orders · read-only database access.
 
-  💳 Payments & Operations            Payment methods, installments,
-                                      reconciliation, and delivery
-                                      metrics
+<!--
+📸 Add screenshots here for a big visual upgrade:
+1. Create a folder: docs/screenshots/
+2. Add images, then uncomment:
 
-  🔎 Order Explorer                   Individual order lookup, order
-                                      details, and CSV export
-  -----------------------------------------------------------------------
+<div align="center">
+  <img src="docs/screenshots/executive-overview.png" width="48%" alt="Executive Overview"/>
+  <img src="docs/screenshots/sales-analytics.png" width="48%" alt="Sales Analytics"/>
+</div>
+-->
 
-**Dashboard capabilities**
-
--   Interactive filters and visual exploration.
--   SQL-powered data retrieval.
--   Individual order-level investigation.
--   CSV export for selected order data.
--   Read-only database access.
-
-------------------------------------------------------------------------
+---
 
 ## ⚙️ Technology Stack
 
-  Technology       Purpose
-  ---------------- ----------------------------------------------
-  Python           Core programming and pipeline orchestration
-  Pandas           Data ingestion, cleaning, and transformation
-  SQL              Analytical queries and business insights
-  SQLite           Relational analytical database
-  Streamlit        Interactive dashboard
-  Plotly           Interactive data visualizations
-  OpenPyXL         Automated Excel report generation
-  Pytest           Automated testing
-  Git & GitHub     Version control and source management
-  GitHub Actions   Automated test workflow
+| Technology | Purpose |
+|---|---|
+| **Python** | Core programming and pipeline orchestration |
+| **Pandas** | Data ingestion, cleaning, and transformation |
+| **SQL** | Analytical queries and business insights |
+| **SQLite** | Relational analytical database |
+| **Streamlit** | Interactive dashboard |
+| **Plotly** | Interactive data visualizations |
+| **OpenPyXL** | Automated Excel report generation |
+| **Pytest** | Automated testing |
+| **Git & GitHub** | Version control and source management |
+| **GitHub Actions** | Automated test workflow |
 
-------------------------------------------------------------------------
+---
 
 ## 🔍 Data Quality & Validation
 
-Data quality is an important part of this project. Instead of silently
-modifying every anomaly, the pipeline identifies and reports validation
-findings.
+Instead of silently modifying every anomaly, the pipeline **identifies and reports** validation findings.
 
 ### Observed findings from the current dataset run
 
-  -----------------------------------------------------------------------
-  Finding                                                     Observation
-  ------------------------------ ----------------------------------------
-  Exact duplicate geolocation                                     261,831
-  rows removed from processed    
-  copy                           
+| Finding | Observation |
+|---|---:|
+| Exact duplicate geolocation rows removed from processed copy | **261,831** |
+| Repeated review IDs retained for investigation | **814** |
+| Products with zero recorded weight | **4** |
+| Carrier timestamps earlier than purchase timestamps | **166** |
+| Customer-delivery timestamps earlier than carrier handoff | **23** |
+| Difference between all-status payment totals and item-plus-freight totals | **R$165,318.88** |
 
-  Repeated review IDs retained                                        814
-  for investigation              
+> [!NOTE]
+> These are observations from the current dataset version, not guarantees for other dataset versions.
 
-  Products with zero recorded                                           4
-  weight                         
-
-  Carrier timestamps earlier                                          166
-  than purchase timestamps       
-
-  Customer-delivery timestamps                                         23
-  earlier than carrier handoff   
-
-  Difference between all-status                             R\$165,318.88
-  payment totals and             
-  item-plus-freight totals       
-  -----------------------------------------------------------------------
-
-These are observations from the current dataset version, not guarantees
-for other dataset versions.
-
-------------------------------------------------------------------------
+---
 
 ## 📐 Analytical Definitions & Limitations
 
-To avoid misleading business conclusions, the dashboard distinguishes
-between different financial and operational measures.
+To avoid misleading business conclusions, the dashboard separates different financial and operational measures.
 
--   **Delivered item revenue:** Item prices for orders with status
-    `delivered`; freight is reported separately.
--   **All-status item value:** Item price plus freight across all order
-    statuses.
--   **Average order value:** Delivered item revenue divided by
-    qualifying delivered orders.
--   **Customer count:** Based on distinct customer identifiers.
--   **Payment totals:** Reported separately from item and freight
-    totals; the measures are not assumed to reconcile.
--   **Currency:** Brazilian Real (BRL).
+| Measure | Definition |
+|---|---|
+| **Delivered item revenue** | Item prices for orders with status `delivered`; freight is reported separately |
+| **All-status item value** | Item price plus freight across all order statuses |
+| **Average order value** | Delivered item revenue ÷ qualifying delivered orders |
+| **Customer count** | Based on distinct customer identifiers |
+| **Payment totals** | Reported separately from item and freight totals; the measures are not assumed to reconcile |
+| **Currency** | Brazilian Real (BRL) |
 
-The source dataset does not provide product costs or profit margins.
-Therefore, actual profit, margin, and customer lifetime value are not
-calculated.
+> [!IMPORTANT]
+> The source dataset has no product costs or profit margins, so **profit, margin, and customer lifetime value are not calculated**. Timestamp anomalies and validation findings are reported rather than silently corrected.
 
-Timestamp anomalies and validation findings are reported rather than
-silently corrected.
+---
 
-------------------------------------------------------------------------
+## 🚀 Run Locally
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/Tuberamesh/ecommerce-automation-system.git
+cd ecommerce-automation-system
+```
+
+**2. Create a virtual environment**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+On Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**3. Install dependencies**
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+**4. Download the dataset**
+
+Get the [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) and place all nine CSV files inside `data/raw/`.
+
+**5. Run the pipeline**
+
+```bash
+python main.py
+```
+
+**6. Run automated tests**
+
+```bash
+python -m pytest -q
+```
+
+**7. Launch the dashboard**
+
+```bash
+streamlit run dashboard/app.py
+```
+
+Then open `http://localhost:8501` in your browser.
+
+---
+
+## 🗄️ Database & Deployment
+
+The project supports separate local and deployment-oriented databases.
+
+| Database | Purpose |
+|---|---|
+| `database/ecommerce.db` | Full local development database |
+| `database/deployment_ecommerce.db` | Reduced deployment database with pseudonymized identifiers |
+
+The app prefers the full local database when available, otherwise it uses the deployment database.
+
+To select a database explicitly:
+
+```bash
+OLIST_DATABASE_PATH=database/deployment_ecommerce.db streamlit run dashboard/app.py
+```
+
+To generate the deployment database:
+
+```bash
+python scripts/create_deployment_db.py
+```
+
+> [!NOTE]
+> The deployment database reduces the fields and direct identifiers included in the deployment copy. Pseudonymization does not guarantee anonymity.
+
+Raw CSV files, processed datasets, database files, and pipeline logs are excluded from the public Git repository.
+
+### Generated Outputs
+
+| Output | Description |
+|---|---|
+| `database/ecommerce.db` | Full processed SQLite database |
+| `database/deployment_ecommerce.db` | Reduced deployment-oriented database |
+| `reports/ecommerce_report.xlsx` | Automated Excel report with 11 worksheets |
+| `logs/` | Pipeline execution logs |
+
+These files are generated locally and are not included in the public repository.
+
+---
 
 ## 📁 Project Structure
 
-``` text
+<details>
+<summary><b>Click to expand</b></summary>
+
+```text
 ecommerce-automation-system/
 │
 ├── .github/
@@ -261,9 +312,7 @@ ecommerce-automation-system/
 │   └── processed/
 │
 ├── database/
-│
 ├── logs/
-│
 ├── reports/
 │
 ├── scripts/
@@ -279,192 +328,60 @@ ecommerce-automation-system/
 │   └── validation/
 │
 ├── tests/
-│
 ├── main.py
 ├── requirements.txt
 └── README.md
 ```
 
-------------------------------------------------------------------------
+</details>
 
-## 🚀 Run Locally
-
-### 1. Clone the repository
-
-``` bash
-git clone https://github.com/Tuberamesh/ecommerce-automation-system.git
-cd ecommerce-automation-system
-```
-
-### 2. Create a virtual environment
-
-``` bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-On Windows PowerShell:
-
-``` powershell
-.venv\Scripts\Activate.ps1
-```
-
-### 3. Install dependencies
-
-``` bash
-python -m pip install -r requirements.txt
-```
-
-### 4. Download the dataset
-
-Download the Brazilian E-Commerce Public Dataset by Olist:
-
-https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
-
-Place all nine CSV files inside:
-
-``` text
-data/raw/
-```
-
-### 5. Execute the pipeline
-
-``` bash
-python main.py
-```
-
-### 6. Run automated tests
-
-``` bash
-python -m pytest -q
-```
-
-### 7. Launch the dashboard
-
-``` bash
-streamlit run dashboard/app.py
-```
-
-Open `http://localhost:8501` in your browser.
-
-------------------------------------------------------------------------
-
-## 🗄️ Database & Deployment
-
-The project supports separate local and deployment-oriented database
-configurations.
-
-  ------------------------------------------------------------------------
-  Database                             Purpose
-  ------------------------------------ -----------------------------------
-  `database/ecommerce.db`              Full local development database
-
-  `database/deployment_ecommerce.db`   Reduced deployment database with
-                                       pseudonymized identifiers
-  ------------------------------------------------------------------------
-
-The application prefers the full local database when available.
-Otherwise, it can use the deployment database.
-
-To explicitly select a database:
-
-``` bash
-OLIST_DATABASE_PATH=database/deployment_ecommerce.db streamlit run dashboard/app.py
-```
-
-Generate the deployment database separately:
-
-``` bash
-python scripts/create_deployment_db.py
-```
-
-The deployment database reduces the fields and direct identifiers
-included in the deployment copy. Pseudonymization does not guarantee
-anonymity.
-
-Raw CSV files, processed datasets, database files, and pipeline logs are
-excluded from the public Git repository.
-
-------------------------------------------------------------------------
-
-## 📑 Generated Outputs
-
-  ------------------------------------------------------------------------
-  Output                               Description
-  ------------------------------------ -----------------------------------
-  `database/ecommerce.db`              Full processed SQLite database
-
-  `database/deployment_ecommerce.db`   Reduced deployment-oriented
-                                       database
-
-  `reports/ecommerce_report.xlsx`      Automated Excel report with 11
-                                       worksheets
-
-  `logs/`                              Pipeline execution logs
-  ------------------------------------------------------------------------
-
-These files are generated locally and are not included in the public
-repository.
-
-------------------------------------------------------------------------
+---
 
 ## 📚 Dataset Credits & Licensing
 
-### Dataset Attribution
-
 **Brazilian E-Commerce Public Dataset by Olist**
 
--   Dataset publisher: Olist
--   Source: [Kaggle -- Brazilian E-Commerce Public
-    Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
--   Dataset licence: [Creative Commons
-    Attribution-NonCommercial-ShareAlike 4.0
-    International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+- **Publisher:** Olist
+- **Source:** [Kaggle – Brazilian E-Commerce Public Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+- **Dataset licence:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-This project uses the Olist dataset for educational and analytical
-purposes. The original dataset is not owned or created by the project
-author.
+This project uses the Olist dataset for educational and analytical purposes. The original dataset is not owned or created by the project author.
 
-The dataset licence is separate from the original project code. Review
-the licence terms and attribution requirements before redistributing the
-dataset, derived databases, or other dataset-based materials.
+The dataset licence is separate from the project code. Review the licence terms and attribution requirements before redistributing the dataset, derived databases, or other dataset-based materials.
 
-**Code licence:** No separate open-source licence has currently been
-declared for this repository.
+**Code licence:** No separate open-source licence has currently been declared for this repository.
 
-------------------------------------------------------------------------
+---
 
-## 👨‍💻 About the Developer
+<div align="center">
 
-::: {align="center"}
-`<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f172a,100:1e3a8a&height=3" width="80%"/>`{=html}
+## 👨‍💻 Built by Ramesha G
 
-### Built by Ramesha G
+**B.Tech Data Science Student · New Horizon College of Engineering · Bengaluru**
 
-**B.Tech Data Science Student · New Horizon College of Engineering ·
-Bengaluru**
+Interested in Data Analytics, Python, SQL, and AI Engineering.<br/>
+I build practical projects that turn data into useful insights and real-world applications.
 
-Interested in Data Analytics, Python, SQL, and AI Engineering.
+<br/>
 
-I build practical projects that turn data into useful insights and
-real-world applications.
+<a href="https://www.linkedin.com/in/ramesha-g/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+<a href="https://github.com/Tuberamesh"><img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+<a href="https://www.instagram.com/decoder_space/"><img src="https://img.shields.io/badge/Instagram-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/></a>
+<a href="https://www.youtube.com/@The_Decoder_yt"><img src="https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"/></a>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ramesha-g/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Tuberamesh)
-[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/decoder_space/)
-[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@The_Decoder_yt)
+<br/><br/>
 
 ### ⭐ Like this project?
 
-Explore the live dashboard, check out the repository, and feel free to
-connect with me!
+Explore the live dashboard, star the repository, and feel free to connect!
 
-[![Explore Live
-Project](https://img.shields.io/badge/EXPLORE%20LIVE%20PROJECT-2563eb?style=for-the-badge&logo=streamlit&logoColor=white)](https://olist-commerce-intelligence.streamlit.app)
-[![Star on
-GitHub](https://img.shields.io/badge/STAR%20ON%20GITHUB-111827?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Tuberamesh/ecommerce-automation-system)
+<a href="https://olist-commerce-intelligence.streamlit.app"><img src="https://img.shields.io/badge/EXPLORE_LIVE_PROJECT-2563eb?style=for-the-badge&logo=streamlit&logoColor=white" alt="Explore Live Project"/></a>
+<a href="https://github.com/Tuberamesh/ecommerce-automation-system"><img src="https://img.shields.io/badge/STAR_ON_GITHUB-111827?style=for-the-badge&logo=github&logoColor=white" alt="Star on GitHub"/></a>
 
-`<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e3a8a,100:2563eb&height=110&section=footer" width="100%"/>`{=html}
+<br/>
 
 **Turning raw data into meaningful intelligence.**
-:::
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e3a8a,100:2563eb&height=110&section=footer" width="100%" alt="footer"/>
+
+</div>
